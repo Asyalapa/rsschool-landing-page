@@ -1,55 +1,55 @@
 :root {
-    --color-text-primary: #403f3d;
-    --color-text-inverse: #e1d4c9;
-    --color-text-accent: #b0907a;
-    --color-bg-page: #e1d4c9;
-    --color-bg-container: #665f55;
-    --color-bg-overlay: rgb(64 63 61 / 80%);
-    --color-border-primary: #c1b6ad;
-    --color-border-inverse: #665f55;
-    --font-family-base: 'Inter', sans-serif;
-    --font-weight-regular: 400;
-    --font-weight-semibold: 600;
-    --font-size-h1: 72px;
-    --line-height-h1: 1.05;
-    --font-size-h2: 60px;
-    --line-height-h2: 1.25;
-    --font-size-h3: 24px;
-    --line-height-h3: 1.25;
-    --font-size-body: 16px;
-    --line-height-body: 1.5;
-    --font-size-caption: 10px;
-    --line-height-caption: 1.4;
-    --font-size-action: 16px;
-    --line-height-action: 1.5;
-    --font-size-burger-link: 32px;
-    --line-height-burger-link: 1.25;
-    --space-1: 4px;
-    --space-2: 8px;
-    --space-3: 12px;
-    --space-4: 16px;
-    --space-5: 20px;
-    --space-6: 24px;
-    --space-7: 28px;
-    --space-8: 32px;
-    --space-10: 40px;
-    --space-15: 60px;
-    --radius-sm: 8px;     /* карточки/свотчи */
-    --radius-lg: 12px;    /* контейнеры */
-    --radius-full: 100px; /* пилюли, круглые кнопки-иконки */
+  --color-text-primary: #403f3d;
+  --color-text-inverse: #e1d4c9;
+  --color-text-accent: #b0907a;
+  --color-bg-page: #e1d4c9;
+  --color-bg-container: #665f55;
+  --color-bg-overlay: rgb(64 63 61 / 80%);
+  --color-border-primary: #c1b6ad;
+  --color-border-inverse: #665f55;
+  --font-family-base: "Inter", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-size-h1: 72px;
+  --line-height-h1: 1.05;
+  --font-size-h2: 60px;
+  --line-height-h2: 1.25;
+  --font-size-h3: 24px;
+  --line-height-h3: 1.25;
+  --font-size-body: 16px;
+  --line-height-body: 1.5;
+  --font-size-caption: 10px;
+  --line-height-caption: 1.4;
+  --font-size-action: 16px;
+  --line-height-action: 1.5;
+  --font-size-burger-link: 32px;
+  --line-height-burger-link: 1.25;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-15: 60px;
+  --radius-sm: 8px; /* карточки/свотчи */
+  --radius-lg: 12px; /* контейнеры */
+  --radius-full: 100px; /* пилюли, круглые кнопки-иконки */
 
-    /* ---- Component sizing (кнопки-иконки) ------------------------------- */
-    --size-icon-button-sm: 44px; /* burger */
-    --size-icon-button-lg: 60px; /* social / nav icon buttons */
+  /* ---- Component sizing (кнопки-иконки) ------------------------------- */
+  --size-icon-button-sm: 44px; /* burger */
+  --size-icon-button-lg: 60px; /* social / nav icon buttons */
 }
 
-[data-theme='dark'] {
-    --color-text-primary: #e1d4c9;
-    --color-text-inverse: #e1d4c9;
-    --color-text-accent: #b0907a;
-    --color-bg-page: #292826;
-    --color-bg-container: #403f3d;
-    --color-bg-overlay: rgb(41 40 38 / 80%); /* #292826 · 80% */
-    --color-border-primary: #665f55;
-    --color-border-inverse: #c1b6ad;
+[data-theme="dark"] {
+  --color-text-primary: #e1d4c9;
+  --color-text-inverse: #e1d4c9;
+  --color-text-accent: #b0907a;
+  --color-bg-page: #292826;
+  --color-bg-container: #403f3d;
+  --color-bg-overlay: rgb(41 40 38 / 80%); /* #292826 · 80% */
+  --color-border-primary: #665f55;
+  --color-border-inverse: #c1b6ad;
 }

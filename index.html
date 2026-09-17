@@ -1,10 +1,341 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Coffee House</title>
 
-</body>
+    <link href="style/variables.css" rel="stylesheet">
+    <link href="style/base.css" rel="stylesheet">
+    <link href="style/layout.css" rel="stylesheet">
+    <link href="style/pages.css" rel="stylesheet">
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <a aria-label="Coffee House — go to homepage" class="header__logo" href="index.html">
+          <img alt="Coffee House" height="60" src="images/Logo-CH.svg" width="100">
+        </a>
+
+        <nav class="header__nav" aria-label="Main navigation">
+          <a href="#favorite-coffee" class="header__nav-link">Favorite coffee</a>
+          <a href="#about" class="header__nav-link">About</a>
+          <a href="#mobile-app" class="header__nav-link">Mobile app</a>
+          <a href="#contacts" class="header__nav-link">Contact us</a>
+        </nav>
+
+        <div class="header__actions">
+          <fieldset class="theme-switch">
+            <legend class="visually-hidden">Theme</legend>
+            <label class="theme-switch__option theme-switch__option--light">
+              <input checked class="theme-switch__input" name="theme" type="radio" value="light">
+              <span class="visually-hidden">Light theme</span>
+            </label>
+            <label class="theme-switch__option theme-switch__option--dark">
+              <input class="theme-switch__input" name="theme" type="radio" value="dark">
+              <span class="visually-hidden">Dark theme</span>
+            </label>
+          </fieldset>
+
+          <a class="header__menu-link header__menu-link--current" href="menu.html">
+            Menu
+            <svg aria-hidden="true" class="header__menu-link-icon icon">
+              <use href="img/icons/sprite.svg#icon-coffee-cup"></use>
+            </svg>
+          </a>
+
+          <button
+            aria-controls="burger-menu"
+            aria-expanded="false"
+            aria-label="Open menu"
+            class="header__burger burger-toggle"
+            type="button"
+          >
+            <span aria-hidden="true" class="burger-toggle__icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div
+      aria-label="Navigation menu"
+      aria-modal="true"
+      class="burger-menu"
+      hidden
+      id="burger-menu"
+      role="dialog"
+    >
+      <div class="burger-menu__header">
+        <a class="header__logo" href="index.html">
+          <img alt="Coffee House" height="60" src="images/Logo-CH.svg" width="100">
+        </a>
+        <div class="header__actions">
+          <fieldset class="theme-switch">
+            <legend class="visually-hidden">Theme</legend>
+            <label class="theme-switch__option theme-switch__option--light">
+              <input checked class="theme-switch__input" name="theme" type="radio" value="light">
+              <span class="visually-hidden">Light theme</span>
+            </label>
+            <label class="theme-switch__option theme-switch__option--dark">
+              <input class="theme-switch__input" name="theme" type="radio" value="dark">
+              <span class="visually-hidden">Dark theme</span>
+            </label>
+          </fieldset>
+          <button aria-label="Close menu" class="burger-menu__close" type="button">
+            <span aria-hidden="true" class="burger-toggle__icon burger-toggle__icon--close"></span>
+          </button>
+        </div>
+      </div>
+
+      <nav class="burger-menu__nav" aria-label="Main navigation">
+        <a href="#favorite-coffee" class="burger-menu__link">Favorite coffee</a>
+        <a href="#about" class="burger-menu__link">About</a>
+        <a href="#mobile-app" class="burger-menu__link">Mobile app</a>
+        <a href="#contacts" class="burger-menu__link">Contact us</a>
+      </nav>
+
+      <a class="burger-menu__cta" href="menu.html">
+        Menu
+        <svg aria-hidden="true" class="burger-menu__cta-icon icon">
+          <use href="img/icons/sprite.svg#icon-coffee-cup"></use>
+        </svg>
+      </a>
+    </div>
+
+    <main class="home-page">
+      <section class="hero">
+        <div class="hero__container">
+          <div class="hero__offer">
+            <h1 class="hero__title">
+              <span class="hero__title-accent">Enjoy</span>
+              premium coffee at our charming cafe
+            </h1>
+            <p class="hero__desc">
+              With its inviting atmosphere and delicious coffee options, the Coffee House Resource
+              is a popular destination for coffee lovers and those seeking a warm and inviting space
+              to enjoy their favorite beverage.
+            </p>
+            <a href="menu.html" class="hero__cta">Menu</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="favorite-coffee" id="favorite-coffee">
+        <div class="favorite-coffee__container">
+          <h2 class="favorite-coffee__title">
+            Choose your <span class="favorite-coffee__title-accent">favorite</span> coffee
+          </h2>
+
+          <div class="slider" data-slider>
+            <div class="slider__row">
+              <button
+                type="button"
+                class="slider__nav slider__nav--prev"
+                aria-label="Previous slide"
+                data-slider-prev
+              >
+                <svg class="icon" aria-hidden="true">
+                  <use href="images/icons/sprite.svg#icon-refresh"></use>
+                </svg>
+              </button>
+
+              <div class="slider__viewport">
+                <ul class="slider__track" data-slider-track></ul>
+              </div>
+
+              <button
+                type="button"
+                class="slider__nav slider__nav--next"
+                aria-label="Next slide"
+                data-slider-next
+              >
+                <svg class="icon" aria-hidden="true">
+                  <use href="images/icons/sprite.svg#icon-refresh"></use>
+                </svg>
+              </button>
+            </div>
+
+            <div class="slider__dots" data-slider-dots role="tablist" aria-label="Slides"></div>
+          </div>
+
+          <template id="slide-template">
+            <li class="slider__slide">
+              <div class="slider__slide-media">
+                <img src="" alt="" class="slider__slide-img" loading="lazy">
+              </div>
+              <div class="slider__slide-body">
+                <p class="slider__slide-title"></p>
+                <p class="slider__slide-desc"></p>
+                <p class="slider__slide-price"></p>
+              </div>
+            </li>
+          </template>
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <div class="about__container">
+          <p class="about__lead">
+            Resource is <span class="about__lead-accent">the perfect and cozy place</span> where you
+            can enjoy a variety of hot beverages, relax, catch up with friends, or get some work
+            done.
+          </p>
+
+          <div class="about__gallery">
+            <div class="about__column">
+              <img
+                src="images/about-1.jpg"
+                alt=""
+                class="about__photo about__photo--tall"
+                loading="lazy"
+              >
+              <img
+                src="images/about-2.jpg"
+                alt=""
+                class="about__photo about__photo--short"
+                loading="lazy"
+              >
+            </div>
+            <div class="about__column">
+              <img
+                src="images/about-3.jpg"
+                alt=""
+                class="about__photo about__photo--short"
+                loading="lazy"
+              >
+              <img
+                src="images/about-4.jpg"
+                alt=""
+                class="about__photo about__photo--tall"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mobile-app" id="mobile-app">
+        <div class="mobile-app__container">
+          <div class="mobile-app__offer">
+            <h2 class="mobile-app__title">
+              <span class="mobile-app__title-accent">Download</span>
+              our app<br>to start ordering
+            </h2>
+            <p class="mobile-app__desc">
+              Download the Resource app today and experience the comfort of ordering your favorite
+              coffee from wherever you are
+            </p>
+            <div class="mobile-app__buttons">
+              <a href="https://apps.apple.com/" class="mobile-app__store-btn">
+                <svg class="mobile-app__store-icon icon" aria-hidden="true">
+                  <use href="images/icons/sprite.svg#icon-apple"></use>
+                </svg>
+                <span class="mobile-app__store-text">
+                  <span class="mobile-app__store-caption">Available on the</span>
+                  <span class="mobile-app__store-name">App Store</span>
+                </span>
+              </a>
+              <a href="https://play.google.com/" class="mobile-app__store-btn">
+                <svg class="mobile-app__store-icon icon" aria-hidden="true">
+                  <use href="images/icons/sprite.svg#icon-google-play"></use>
+                </svg>
+                <span class="mobile-app__store-text">
+                  <span class="mobile-app__store-caption">Available on</span>
+                  <span class="mobile-app__store-name">Google Play</span>
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <img
+            src="images/mobile-screens.png"
+            alt="Coffee House mobile app screens"
+            class="mobile-app__screens"
+            loading="lazy"
+          >
+        </div>
+      </section>
+
+      <footer class="contacts" id="contacts">
+        <div class="contacts__container">
+          <div class="contacts__offer">
+            <p class="contacts__title">
+              Sip, Savor, Smile.
+              <span class="contacts__title-accent">It's coffee time!</span>
+            </p>
+
+            <ul class="contacts__socials">
+              <li>
+                <a
+                  aria-label="Twitter"
+                  class="contacts__social-link"
+                  href="https://x.com/"
+                  target="_blank"
+                >
+                  <svg aria-hidden="true" class="contacts__social-icon icon">
+                    <use href="img/icons/sprite.svg#icon-twitter"></use>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  aria-label="Instagram"
+                  class="contacts__social-link"
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                >
+                  <svg aria-hidden="true" class="contacts__social-icon icon">
+                    <use href="img/icons/sprite.svg#icon-instagram"></use>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  aria-label="Facebook"
+                  class="contacts__social-link"
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                >
+                  <svg aria-hidden="true" class="contacts__social-icon icon">
+                    <use href="img/icons/sprite.svg#icon-facebook"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="contacts__info">
+            <h2 class="contacts__info-title">Contact us</h2>
+
+            <ul class="contacts__list">
+              <li class="contacts__item">
+                <a class="contacts__link" href="https://maps.google.com/?q=8558+Green+Rd.,+LA">
+                  <svg aria-hidden="true" class="contacts__icon icon">
+                    <use href="img/icons/sprite.svg#icon-pin"></use>
+                  </svg>
+                  8558 Green Rd., LA
+                </a>
+              </li>
+              <li class="contacts__item">
+                <a class="contacts__link" href="tel:+16035550123">
+                  <svg aria-hidden="true" class="contacts__icon icon">
+                    <use href="img/icons/sprite.svg#icon-phone"></use>
+                  </svg>
+                  +1 (603) 555-0123
+                </a>
+              </li>
+              <li class="contacts__item">
+                <span class="contacts__link contacts__link--static">
+                  <svg aria-hidden="true" class="contacts__icon icon">
+                    <use href="img/icons/sprite.svg#icon-clock"></use>
+                  </svg>
+                  Mon–Sat: 9:00–23:00
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </body>
 </html>
