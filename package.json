@@ -1,8 +1,6 @@
 {
   "devDependencies": {
-    "eslint": "^10.10.0",
-    "eslint-config-prettier": "^10.1.8",
-    "prettier": "^3.9.6",
+    "@biomejs/biome": "^2.5.13",
     "stylelint": "^17.15.0",
     "stylelint-config-concentric-order": "^5.5.0",
     "stylelint-config-standard": "^40.0.0"

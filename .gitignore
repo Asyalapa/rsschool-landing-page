@@ -4,3 +4,12 @@ node_modules/
 .eslintcache
 .stylelintcache
 .idea/
+.images/icons/clock.svg
+.images/icons/coffee-cup.svg
+.images/icons/facebook.svg
+.images/icons/info-empty.svg
+.images/icons/instagram.svg
+.images/icons/phone.svg
+.images/icons/pin-alt.svg
+.images/icons/refresh.svg
+.images/icons/twitter.svg
