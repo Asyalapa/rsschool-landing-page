@@ -286,7 +286,7 @@
   margin-bottom: var(--space-10);
   margin-inline: auto;
   border-radius: 40px;
-  background: url("/images/img-hero.jpg") center / cover no-repeat;
+  background: url("../images/img-hero.jpg") center / cover no-repeat;
   padding: var(--space-16);
   max-width: 1360px;
 }
