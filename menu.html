@@ -10,76 +10,73 @@
   <body>
     <header class="header">
       <div class="header__container">
-        <a href="index.html" class="header__logo" aria-label="Coffee House — go to homepage">
-          <img src="images/Logo-CH.svg" alt="Coffee House" width="100" height="60">
+        <a aria-label="Coffee House — go to homepage" class="header__logo" href="index.html">
+          <svg class="header__logo-icon icon" aria-hidden="true">
+            <use href="images/icons/sprite.svg#icon-logo"></use>
+          </svg>
         </a>
 
         <nav class="header__nav" aria-label="Main navigation">
-          <a href="index.html#favorite-coffee" class="header__nav-link">Favorite coffee</a>
-          <a href="index.html#about" class="header__nav-link">About</a>
-          <a href="index.html#mobile-app" class="header__nav-link">Mobile app</a>
-          <a href="index.html#contacts" class="header__nav-link">Contact us</a>
+          <a href="#favorite-coffee" class="header__nav-link">Favorite coffee</a>
+          <a href="#about" class="header__nav-link">About</a>
+          <a href="#mobile-app" class="header__nav-link">Mobile app</a>
+          <a href="#contacts" class="header__nav-link">Contact us</a>
         </nav>
 
         <div class="header__actions">
           <fieldset class="theme-switch">
-            <legend class="visually-hidden">Theme</legend>
+            <legend class="visually-hidden">Тема оформления</legend>
             <label class="theme-switch__option theme-switch__option--light">
               <input type="radio" name="theme" value="light" class="theme-switch__input" checked>
-              <span class="visually-hidden">Light theme</span>
+              <svg class="theme-switch__icon icon" aria-hidden="true">
+                <use href="images/icons/sprite.svg#icon-sun"></use>
+              </svg>
+              <span class="visually-hidden">Светлая тема</span>
             </label>
             <label class="theme-switch__option theme-switch__option--dark">
               <input type="radio" name="theme" value="dark" class="theme-switch__input">
-              <span class="visually-hidden">Dark theme</span>
+              <svg class="theme-switch__icon icon icon-moon" aria-hidden="true">
+                <use href="images/icons/sprite.svg#icon-moon"></use>
+              </svg>
+              <span class="visually-hidden">Тёмная тема</span>
             </label>
           </fieldset>
 
-          <a href="menu.html" class="header__menu-link header__menu-link--current">
+          <a class="header__menu-link" href="menu.html">
             Menu
-            <svg class="header__menu-link-icon icon" aria-hidden="true">
-              <use href="img/icons/sprite.svg#icon-coffee-cup"></use>
+            <svg aria-hidden="true" class="header__menu-link-icon icon">
+              <use href="images/icons/sprite.svg#icon-coffee-cup"></use>
             </svg>
           </a>
 
           <button
-            type="button"
-            class="header__burger burger-toggle"
-            aria-expanded="false"
             aria-controls="burger-menu"
+            aria-expanded="false"
             aria-label="Open menu"
+            class="header__burger burger-toggle"
+            type="button"
           >
-            <span class="burger-toggle__icon" aria-hidden="true"></span>
+            <span aria-hidden="true" class="burger-toggle__icon"></span>
           </button>
         </div>
       </div>
     </header>
 
     <div
+      aria-label="Navigation menu"
+      aria-modal="true"
       class="burger-menu"
+      hidden
       id="burger-menu"
       role="dialog"
-      aria-modal="true"
-      aria-label="Navigation menu"
-      hidden
     >
       <div class="burger-menu__header">
-        <a href="index.html" class="header__logo">
-          <img src="images/Logo-CH.svg" alt="Coffee House" width="100" height="60">
+        <a class="header__logo" href="index.html">
+          <img alt="Coffee House" height="60" src="images/Logo-CH.svg" width="100">
         </a>
         <div class="header__actions">
-          <fieldset class="theme-switch">
-            <legend class="visually-hidden">Theme</legend>
-            <label class="theme-switch__option theme-switch__option--light">
-              <input type="radio" name="theme" value="light" class="theme-switch__input" checked>
-              <span class="visually-hidden">Light theme</span>
-            </label>
-            <label class="theme-switch__option theme-switch__option--dark">
-              <input type="radio" name="theme" value="dark" class="theme-switch__input">
-              <span class="visually-hidden">Dark theme</span>
-            </label>
-          </fieldset>
-          <button type="button" class="burger-menu__close" aria-label="Close menu">
-            <span class="burger-toggle__icon burger-toggle__icon--close" aria-hidden="true"></span>
+          <button aria-label="Close menu" class="burger-menu__close" type="button">
+            <span aria-hidden="true" class="burger-toggle__icon burger-toggle__icon--close"></span>
           </button>
         </div>
       </div>
@@ -91,10 +88,10 @@
         <a href="index.html#contacts" class="burger-menu__link">Contact us</a>
       </nav>
 
-      <a href="menu.html" class="burger-menu__cta">
+      <a class="burger-menu__cta burger-menu__cta--current" href="menu.html">
         Menu
-        <svg class="burger-menu__cta-icon icon" aria-hidden="true">
-          <use href="img/icons/sprite.svg#icon-coffee-cup"></use>
+        <svg aria-hidden="true" class="burger-menu__cta-icon icon">
+          <use href="images/icons/sprite.svg#icon-coffee-cup"></use>
         </svg>
       </a>
     </div>
@@ -351,37 +348,37 @@
             <ul class="contacts__socials">
               <li>
                 <a
-                  href="https://x.com/"
-                  class="contacts__social-link"
-                  target="_blank"
                   aria-label="Twitter"
+                  class="contacts__social-link"
+                  href="https://x.com/"
+                  target="_blank"
                 >
-                  <svg class="contacts__social-icon icon" aria-hidden="true">
-                    <use href="img/icons/sprite.svg#icon-twitter"></use>
+                  <svg aria-hidden="true" class="contacts__social-icon icon">
+                    <use href="images/icons/sprite.svg#icon-twitter"></use>
                   </svg>
                 </a>
               </li>
               <li>
                 <a
-                  href="https://www.instagram.com/"
-                  class="contacts__social-link"
-                  target="_blank"
                   aria-label="Instagram"
+                  class="contacts__social-link"
+                  href="https://www.instagram.com/"
+                  target="_blank"
                 >
-                  <svg class="contacts__social-icon icon" aria-hidden="true">
-                    <use href="img/icons/sprite.svg#icon-instagram"></use>
+                  <svg aria-hidden="true" class="contacts__social-icon icon">
+                    <use href="images/icons/sprite.svg#icon-instagram"></use>
                   </svg>
                 </a>
               </li>
               <li>
                 <a
-                  href="https://www.facebook.com/"
-                  class="contacts__social-link"
-                  target="_blank"
                   aria-label="Facebook"
+                  class="contacts__social-link"
+                  href="https://www.facebook.com/"
+                  target="_blank"
                 >
-                  <svg class="contacts__social-icon icon" aria-hidden="true">
-                    <use href="img/icons/sprite.svg#icon-facebook"></use>
+                  <svg aria-hidden="true" class="contacts__social-icon icon">
+                    <use href="images/icons/sprite.svg#icon-facebook"></use>
                   </svg>
                 </a>
               </li>
@@ -393,25 +390,25 @@
 
             <ul class="contacts__list">
               <li class="contacts__item">
-                <a href="https://maps.google.com/?q=8558+Green+Rd.,+LA" class="contacts__link">
-                  <svg class="contacts__icon icon" aria-hidden="true">
-                    <use href="img/icons/sprite.svg#icon-pin"></use>
+                <a class="contacts__link" href="https://maps.google.com/?q=8558+Green+Rd.,+LA">
+                  <svg aria-hidden="true" class="contacts__icon icon">
+                    <use href="images/icons/sprite.svg#icon-pin"></use>
                   </svg>
                   8558 Green Rd., LA
                 </a>
               </li>
               <li class="contacts__item">
-                <a href="tel:+16035550123" class="contacts__link">
-                  <svg class="contacts__icon icon" aria-hidden="true">
-                    <use href="img/icons/sprite.svg#icon-phone"></use>
+                <a class="contacts__link" href="tel:+16035550123">
+                  <svg aria-hidden="true" class="contacts__icon icon">
+                    <use href="images/icons/sprite.svg#icon-phone"></use>
                   </svg>
                   +1 (603) 555-0123
                 </a>
               </li>
               <li class="contacts__item">
                 <span class="contacts__link contacts__link--static">
-                  <svg class="contacts__icon icon" aria-hidden="true">
-                    <use href="img/icons/sprite.svg#icon-clock"></use>
+                  <svg aria-hidden="true" class="contacts__icon icon">
+                    <use href="images/icons/sprite.svg#icon-clock"></use>
                   </svg>
                   Mon–Sat: 9:00–23:00
                 </span>
@@ -494,7 +491,6 @@
       </div>
     </dialog>
 
-    <script src="" defer></script>
-    <script src="" defer></script>
+    <script src="script.js" defer></script>
   </body>
 </html>

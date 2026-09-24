@@ -11,7 +11,9 @@
     <header class="header">
       <div class="header__container">
         <a aria-label="Coffee House — go to homepage" class="header__logo" href="index.html">
-          <img alt="Coffee House" height="60" src="images/Logo-CH.svg" width="100">
+          <svg class="header__logo-icon icon" aria-hidden="true">
+            <use href="images/icons/sprite.svg#icon-logo"></use>
+          </svg>
         </a>
 
         <nav class="header__nav" aria-label="Main navigation">
@@ -23,21 +25,27 @@
 
         <div class="header__actions">
           <fieldset class="theme-switch">
-            <legend class="visually-hidden">Theme</legend>
+            <legend class="visually-hidden">Тема оформления</legend>
             <label class="theme-switch__option theme-switch__option--light">
-              <input checked class="theme-switch__input" name="theme" type="radio" value="light">
-              <span class="visually-hidden">Light theme</span>
+              <input type="radio" name="theme" value="light" class="theme-switch__input" checked>
+              <svg class="theme-switch__icon icon" aria-hidden="true">
+                <use href="images/icons/sprite.svg#icon-sun"></use>
+              </svg>
+              <span class="visually-hidden">Светлая тема</span>
             </label>
             <label class="theme-switch__option theme-switch__option--dark">
-              <input class="theme-switch__input" name="theme" type="radio" value="dark">
-              <span class="visually-hidden">Dark theme</span>
+              <input type="radio" name="theme" value="dark" class="theme-switch__input">
+              <svg class="theme-switch__icon icon icon-moon" aria-hidden="true">
+                <use href="images/icons/sprite.svg#icon-moon"></use>
+              </svg>
+              <span class="visually-hidden">Тёмная тема</span>
             </label>
           </fieldset>
 
-          <a class="header__menu-link header__menu-link--current" href="menu.html">
+          <a class="header__menu-link" href="menu.html">
             Menu
             <svg aria-hidden="true" class="header__menu-link-icon icon">
-              <use href="img/icons/sprite.svg#icon-coffee-cup"></use>
+              <use href="images/icons/sprite.svg#icon-coffee-cup"></use>
             </svg>
           </a>
 
@@ -67,17 +75,6 @@
           <img alt="Coffee House" height="60" src="images/Logo-CH.svg" width="100">
         </a>
         <div class="header__actions">
-          <fieldset class="theme-switch">
-            <legend class="visually-hidden">Theme</legend>
-            <label class="theme-switch__option theme-switch__option--light">
-              <input checked class="theme-switch__input" name="theme" type="radio" value="light">
-              <span class="visually-hidden">Light theme</span>
-            </label>
-            <label class="theme-switch__option theme-switch__option--dark">
-              <input class="theme-switch__input" name="theme" type="radio" value="dark">
-              <span class="visually-hidden">Dark theme</span>
-            </label>
-          </fieldset>
           <button aria-label="Close menu" class="burger-menu__close" type="button">
             <span aria-hidden="true" class="burger-toggle__icon burger-toggle__icon--close"></span>
           </button>
@@ -94,7 +91,7 @@
       <a class="burger-menu__cta" href="menu.html">
         Menu
         <svg aria-hidden="true" class="burger-menu__cta-icon icon">
-          <use href="img/icons/sprite.svg#icon-coffee-cup"></use>
+          <use href="images/icons/sprite.svg#icon-coffee-cup"></use>
         </svg>
       </a>
     </div>
@@ -112,7 +109,12 @@
               is a popular destination for coffee lovers and those seeking a warm and inviting space
               to enjoy their favorite beverage.
             </p>
-            <a href="menu.html" class="hero__cta">Menu</a>
+            <a href="menu.html" class="hero__cta">
+              <span class="hero__cta-label">Menu</span>
+              <svg class="hero__cta-icon icon" aria-hidden="true">
+                <use href="images/icons/sprite.svg#icon-coffee-cup"></use>
+              </svg>
+            </a>
           </div>
         </div>
       </section>
@@ -132,7 +134,7 @@
                 data-slider-prev
               >
                 <svg class="icon" aria-hidden="true">
-                  <use href="images/icons/sprite.svg#icon-refresh"></use>
+                  <use href="images/icons/sprite.svg#icon-arrow"></use>
                 </svg>
               </button>
 
@@ -147,7 +149,7 @@
                 data-slider-next
               >
                 <svg class="icon" aria-hidden="true">
-                  <use href="images/icons/sprite.svg#icon-refresh"></use>
+                  <use href="images/icons/sprite.svg#icon-arrow"></use>
                 </svg>
               </button>
             </div>
@@ -180,32 +182,20 @@
 
           <div class="about__gallery">
             <div class="about__column">
-              <img
-                src="images/about-1.jpg"
-                alt=""
-                class="about__photo about__photo--tall"
-                loading="lazy"
-              >
-              <img
-                src="images/about-2.jpg"
-                alt=""
-                class="about__photo about__photo--short"
-                loading="lazy"
-              >
+              <div class="about__photo-frame about__photo-frame--tall">
+                <img src="images/about-1.jpg" alt="" class="about__photo" loading="lazy">
+              </div>
+              <div class="about__photo-frame about__photo-frame--short">
+                <img src="images/about-2.jpg" alt="" class="about__photo" loading="lazy">
+              </div>
             </div>
             <div class="about__column">
-              <img
-                src="images/about-3.jpg"
-                alt=""
-                class="about__photo about__photo--short"
-                loading="lazy"
-              >
-              <img
-                src="images/about-4.jpg"
-                alt=""
-                class="about__photo about__photo--tall"
-                loading="lazy"
-              >
+              <div class="about__photo-frame about__photo-frame--short">
+                <img src="images/about-3.jpg" alt="" class="about__photo" loading="lazy">
+              </div>
+              <div class="about__photo-frame about__photo-frame--tall">
+                <img src="images/about-4.jpg" alt="" class="about__photo" loading="lazy">
+              </div>
             </div>
           </div>
         </div>
@@ -270,7 +260,7 @@
                   target="_blank"
                 >
                   <svg aria-hidden="true" class="contacts__social-icon icon">
-                    <use href="img/icons/sprite.svg#icon-twitter"></use>
+                    <use href="images/icons/sprite.svg#icon-twitter"></use>
                   </svg>
                 </a>
               </li>
@@ -282,7 +272,7 @@
                   target="_blank"
                 >
                   <svg aria-hidden="true" class="contacts__social-icon icon">
-                    <use href="img/icons/sprite.svg#icon-instagram"></use>
+                    <use href="images/icons/sprite.svg#icon-instagram"></use>
                   </svg>
                 </a>
               </li>
@@ -294,7 +284,7 @@
                   target="_blank"
                 >
                   <svg aria-hidden="true" class="contacts__social-icon icon">
-                    <use href="img/icons/sprite.svg#icon-facebook"></use>
+                    <use href="images/icons/sprite.svg#icon-facebook"></use>
                   </svg>
                 </a>
               </li>
@@ -308,7 +298,7 @@
               <li class="contacts__item">
                 <a class="contacts__link" href="https://maps.google.com/?q=8558+Green+Rd.,+LA">
                   <svg aria-hidden="true" class="contacts__icon icon">
-                    <use href="img/icons/sprite.svg#icon-pin"></use>
+                    <use href="images/icons/sprite.svg#icon-pin"></use>
                   </svg>
                   8558 Green Rd., LA
                 </a>
@@ -316,7 +306,7 @@
               <li class="contacts__item">
                 <a class="contacts__link" href="tel:+16035550123">
                   <svg aria-hidden="true" class="contacts__icon icon">
-                    <use href="img/icons/sprite.svg#icon-phone"></use>
+                    <use href="images/icons/sprite.svg#icon-phone"></use>
                   </svg>
                   +1 (603) 555-0123
                 </a>
@@ -324,7 +314,7 @@
               <li class="contacts__item">
                 <span class="contacts__link contacts__link--static">
                   <svg aria-hidden="true" class="contacts__icon icon">
-                    <use href="img/icons/sprite.svg#icon-clock"></use>
+                    <use href="images/icons/sprite.svg#icon-clock"></use>
                   </svg>
                   Mon–Sat: 9:00–23:00
                 </span>
@@ -334,5 +324,6 @@
         </div>
       </footer>
     </main>
+    <script type="module" src="index.js" defer></script>
   </body>
 </html>
