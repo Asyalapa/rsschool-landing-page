@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee House — Menu</title>
+
+    <link rel="icon" type="image/svg+xml" href="./images/Logo-CH.svg">
+    <link rel="stylesheet" href="style/main.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <a aria-label="Coffee House — go to homepage" class="header__logo" href="index.html">
+          <svg class="header__logo-icon icon" aria-hidden="true">
+            <use href="images/icons/sprite.svg#icon-logo"></use>
+          </svg>
+        </a>
+
+        <nav class="header__nav" aria-label="Main navigation">
+          <a href="index.html#favorite-coffee" class="header__nav-link">Favorite coffee</a>
+          <a href="index.html#about" class="header__nav-link">About</a>
+          <a href="index.html#mobile-app" class="header__nav-link">Mobile app</a>
+          <a href="index.html#contacts" class="header__nav-link">Contact us</a>
+        </nav>
+
+        <div class="header__actions">
+          <fieldset class="theme-switch">
+            <legend class="visually-hidden">Тема оформления</legend>
+            <label class="theme-switch__option theme-switch__option--light">
+              <input type="radio" name="theme" value="light" class="theme-switch__input" checked>
+              <svg class="theme-switch__icon icon" aria-hidden="true">
+                <use href="images/icons/sprite.svg#icon-sun"></use>
+              </svg>
+              <span class="visually-hidden">Светлая тема</span>
+            </label>
+            <label class="theme-switch__option theme-switch__option--dark">
+              <input type="radio" name="theme" value="dark" class="theme-switch__input">
+              <svg class="theme-switch__icon icon icon-moon" aria-hidden="true">
+                <use href="images/icons/sprite.svg#icon-moon"></use>
+              </svg>
+              <span class="visually-hidden">Тёмная тема</span>
+            </label>
+          </fieldset>
+
+          <a class="header__menu-link" href="menu.html">
+            Menu
+            <svg aria-hidden="true" class="header__menu-link-icon icon">
+              <use href="images/icons/sprite.svg#icon-coffee-cup"></use>
+            </svg>
+          </a>
+
+          <button
+            aria-controls="burger-menu"
+            aria-expanded="false"
+            aria-label="Open menu"
+            class="header__burger burger-toggle"
+            type="button"
+          >
+            <span aria-hidden="true" class="burger-toggle__icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div
+      aria-label="Navigation menu"
+      aria-modal="true"
+      class="burger-menu"
+      hidden
+      id="burger-menu"
+      role="dialog"
+    >
+      <div class="burger-menu__header">
+        <a class="header__logo" href="index.html">
+          <img alt="Coffee House" height="60" src="images/Logo-CH.svg" width="100">
+        </a>
+        <div class="header__actions">
+          <button aria-label="Close menu" class="burger-menu__close" type="button">
+            <span aria-hidden="true" class="burger-toggle__icon burger-toggle__icon--close"></span>
+          </button>
+        </div>
+      </div>
+
+      <nav class="burger-menu__nav" aria-label="Main navigation">
+        <a href="index.html#favorite-coffee" class="burger-menu__link">Favorite coffee</a>
+        <a href="index.html#about" class="burger-menu__link">About</a>
+        <a href="index.html#mobile-app" class="burger-menu__link">Mobile app</a>
+        <a href="index.html#contacts" class="burger-menu__link">Contact us</a>
+      </nav>
+
+      <a class="burger-menu__cta burger-menu__cta--current" href="menu.html">
+        Menu
+        <svg aria-hidden="true" class="burger-menu__cta-icon icon">
+          <use href="images/icons/sprite.svg#icon-coffee-cup"></use>
+        </svg>
+      </a>
+    </div>
+
+    <main class="menu-page">
+      <section class="menu-hero">
+        <h1 class="menu-hero__title">
+          Behind each of our cups hides an
+          <span class="menu-hero__title-accent">amazing surprise</span>
+        </h1>
+
+        <div class="tabs" role="tablist" aria-label="Menu categories">
+          <button
+            type="button"
+            class="tabs__button tabs__button--active"
+            role="tab"
+            id="tab-coffee"
+            aria-selected="true"
+            aria-controls="panel-coffee"
+          >
+            <span class="tabs__icon" aria-hidden="true">☕</span>
+            <span class="tabs__label">Coffee</span>
+          </button>
+
+          <button
+            type="button"
+            class="tabs__button"
+            role="tab"
+            id="tab-tea"
+            aria-selected="false"
+            aria-controls="panel-tea"
+            tabindex="-1"
+          >
+            <span class="tabs__icon" aria-hidden="true">🫖</span>
+            <span class="tabs__label">Tea</span>
+          </button>
+
+          <button
+            type="button"
+            class="tabs__button"
+            role="tab"
+            id="tab-dessert"
+            aria-selected="false"
+            aria-controls="panel-dessert"
+            tabindex="-1"
+          >
+            <span class="tabs__icon" aria-hidden="true">🍰</span>
+            <span class="tabs__label">Dessert</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="menu-panel" id="panel-coffee" role="tabpanel" aria-labelledby="tab-coffee">
+        <ul class="menu-grid">
+          <li class="menu-card" data-product-id="irish-coffee">
+            <button
+              type="button"
+              class="menu-card__trigger"
+              aria-haspopup="dialog"
+              aria-controls="product-modal"
+            >
+              <span class="menu-card__media">
+                <img src="images/coffee-1.jpg" alt="" class="menu-card__img" loading="lazy">
+              </span>
+              <span class="menu-card__body">
+                <span class="menu-card__title">Irish coffee</span>
+                <span class="menu-card__desc"
+                  >Fragrant black coffee with Jameson Irish whiskey and whipped milk</span
+                >
+                <span class="menu-card__price">$7.00</span>
+              </span>
+            </button>
+          </li>
+
+          <li class="menu-card" data-product-id="kahlua-coffee">
+            <button
+              type="button"
+              class="menu-card__trigger"
+              aria-haspopup="dialog"
+              aria-controls="product-modal"
+            >
+              <span class="menu-card__media">
+                <img src="images/coffee-2.jpg" alt="" class="menu-card__img" loading="lazy">
+              </span>
+              <span class="menu-card__body">
+                <span class="menu-card__title">Kahlua coffee</span>
+                <span class="menu-card__desc"
+                  >Classic coffee with milk and Kahlua liqueur under a cap of frothed milk</span
+                >
+                <span class="menu-card__price">$7.00</span>
+              </span>
+            </button>
+          </li>
+
+          <li class="menu-card" data-product-id="honey-raf">
+            <button
+              type="button"
+              class="menu-card__trigger"
+              aria-haspopup="dialog"
+              aria-controls="product-modal"
+            >
+              <span class="menu-card__media">
+                <img src="images/coffee-3.jpg" alt="" class="menu-card__img" loading="lazy">
+              </span>
+              <span class="menu-card__body">
+                <span class="menu-card__title">Honey raf</span>
+                <span class="menu-card__desc"
+                  >Espresso with frothed milk, cream and aromatic honey</span
+                >
+                <span class="menu-card__price">$5.50</span>
+              </span>
+            </button>
+          </li>
+
+          <li class="menu-card" data-product-id="ice-cappuccino">
+            <button
+              type="button"
+              class="menu-card__trigger"
+              aria-haspopup="dialog"
+              aria-controls="product-modal"
+            >
+              <span class="menu-card__media">
+                <img src="images/coffee-4.jpg" alt="" class="menu-card__img" loading="lazy">
+              </span>
+              <span class="menu-card__body">
+                <span class="menu-card__title">Ice cappuccino</span>
+                <span class="menu-card__desc"
+                  >Cappuccino with soft thick foam in summer version with ice</span
+                >
+                <span class="menu-card__price">$5.00</span>
+              </span>
+            </button>
+          </li>
+
+          <li class="menu-card menu-card--extra" data-product-id="espresso" hidden>
+            <button
+              type="button"
+              class="menu-card__trigger"
+              aria-haspopup="dialog"
+              aria-controls="product-modal"
+            >
+              <span class="menu-card__media">
+                <img src="images/coffee-5.jpg" alt="" class="menu-card__img" loading="lazy">
+              </span>
+              <span class="menu-card__body">
+                <span class="menu-card__title">Espresso</span>
+                <span class="menu-card__desc">Classic black coffee</span>
+                <span class="menu-card__price">$4.50</span>
+              </span>
+            </button>
+          </li>
+
+          <li class="menu-card menu-card--extra" data-product-id="latte" hidden>
+            <button
+              type="button"
+              class="menu-card__trigger"
+              aria-haspopup="dialog"
+              aria-controls="product-modal"
+            >
+              <span class="menu-card__media">
+                <img src="images/coffee-6.jpg" alt="" class="menu-card__img" loading="lazy">
+              </span>
+              <span class="menu-card__body">
+                <span class="menu-card__title">Latte</span>
+                <span class="menu-card__desc"
+                  >Espresso coffee with the addition of steamed milk and dense milk foam</span
+                >
+                <span class="menu-card__price">$5.50</span>
+              </span>
+            </button>
+          </li>
+
+          <li class="menu-card menu-card--extra" data-product-id="latte-macchiato" hidden>
+            <button
+              type="button"
+              class="menu-card__trigger"
+              aria-haspopup="dialog"
+              aria-controls="product-modal"
+            >
+              <span class="menu-card__media">
+                <img src="images/coffee-7.jpg" alt="" class="menu-card__img" loading="lazy">
+              </span>
+              <span class="menu-card__body">
+                <span class="menu-card__title">Latte macchiato</span>
+                <span class="menu-card__desc">Espresso with frothed milk and chocolate</span>
+                <span class="menu-card__price">$5.50</span>
+              </span>
+            </button>
+          </li>
+
+          <li class="menu-card menu-card--extra" data-product-id="coffee-with-cognac" hidden>
+            <button
+              type="button"
+              class="menu-card__trigger"
+              aria-haspopup="dialog"
+              aria-controls="product-modal"
+            >
+              <span class="menu-card__media">
+                <img src="images/coffee-8.jpg" alt="" class="menu-card__img" loading="lazy">
+              </span>
+              <span class="menu-card__body">
+                <span class="menu-card__title">Coffee with cognac</span>
+                <span class="menu-card__desc"
+                  >Fragrant black coffee with cognac and whipped cream</span
+                >
+                <span class="menu-card__price">$6.50</span>
+              </span>
+            </button>
+          </li>
+        </ul>
+
+        <button type="button" class="load-more" aria-controls="panel-coffee">
+          <svg class="load-more__icon icon" aria-hidden="true">
+            <use href="img/icons/sprite.svg#icon-refresh"></use>
+          </svg>
+          <span class="visually-hidden">Show more</span>
+        </button>
+      </section>
+
+      <section class="menu-panel" id="panel-tea" role="tabpanel" aria-labelledby="tab-tea" hidden>
+        <ul class="menu-grid"></ul>
+        <button type="button" class="load-more" aria-controls="panel-tea">
+          <svg class="load-more__icon icon" aria-hidden="true">
+            <use href="img/icons/sprite.svg#icon-refresh"></use>
+          </svg>
+          <span class="visually-hidden">Show more</span>
+        </button>
+      </section>
+
+      <section
+        class="menu-panel"
+        id="panel-dessert"
+        role="tabpanel"
+        aria-labelledby="tab-dessert"
+        hidden
+      >
+        <ul class="menu-grid"></ul>
+        <button type="button" class="load-more" aria-controls="panel-dessert">
+          <svg class="load-more__icon icon" aria-hidden="true">
+            <use href="img/icons/sprite.svg#icon-refresh"></use>
+          </svg>
+          <span class="visually-hidden">Show more</span>
+        </button>
+      </section>
+
+      <footer class="contacts" id="contacts">
+        <div class="contacts__container">
+          <div class="contacts__offer">
+            <p class="contacts__title">
+              Sip, Savor, Smile.
+              <span class="contacts__title-accent">It's coffee time!</span>
+            </p>
+
+            <ul class="contacts__socials">
+              <li>
+                <a
+                  aria-label="Twitter"
+                  class="contacts__social-link"
+                  href="https://x.com/"
+                  target="_blank"
+                >
+                  <svg aria-hidden="true" class="contacts__social-icon icon">
+                    <use href="images/icons/sprite.svg#icon-twitter"></use>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  aria-label="Instagram"
+                  class="contacts__social-link"
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                >
+                  <svg aria-hidden="true" class="contacts__social-icon icon">
+                    <use href="images/icons/sprite.svg#icon-instagram"></use>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  aria-label="Facebook"
+                  class="contacts__social-link"
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                >
+                  <svg aria-hidden="true" class="contacts__social-icon icon">
+                    <use href="images/icons/sprite.svg#icon-facebook"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="contacts__info">
+            <h2 class="contacts__info-title">Contact us</h2>
+
+            <ul class="contacts__list">
+              <li class="contacts__item">
+                <a class="contacts__link" href="https://maps.google.com/?q=8558+Green+Rd.,+LA">
+                  <svg aria-hidden="true" class="contacts__icon icon">
+                    <use href="images/icons/sprite.svg#icon-pin"></use>
+                  </svg>
+                  8558 Green Rd., LA
+                </a>
+              </li>
+              <li class="contacts__item">
+                <a class="contacts__link" href="tel:+16035550123">
+                  <svg aria-hidden="true" class="contacts__icon icon">
+                    <use href="images/icons/sprite.svg#icon-phone"></use>
+                  </svg>
+                  +1 (603) 555-0123
+                </a>
+              </li>
+              <li class="contacts__item">
+                <span class="contacts__link contacts__link--static">
+                  <svg aria-hidden="true" class="contacts__icon icon">
+                    <use href="images/icons/sprite.svg#icon-clock"></use>
+                  </svg>
+                  Mon–Sat: 9:00–23:00
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <dialog class="modal" id="product-modal" aria-labelledby="modal-title">
+      <div class="modal__preview">
+        <img src="" alt="" class="modal__img" id="modal-img">
+      </div>
+
+      <div class="modal__info">
+        <div class="modal__heading">
+          <h2 class="modal__title" id="modal-title">Title</h2>
+          <p class="modal__desc" id="modal-desc">Description</p>
+        </div>
+
+        <fieldset class="modal__group">
+          <legend class="modal__group-title">Size</legend>
+          <div class="modal__options" role="radiogroup" aria-label="Size">
+            <label class="modal__option">
+              <input type="radio" name="size" value="200" class="modal__option-input" checked>
+              <span class="modal__option-icon" aria-hidden="true">S</span>
+              <span class="modal__option-label">200 ml</span>
+            </label>
+            <label class="modal__option">
+              <input type="radio" name="size" value="300" class="modal__option-input">
+              <span class="modal__option-icon" aria-hidden="true">M</span>
+              <span class="modal__option-label">300 ml</span>
+            </label>
+            <label class="modal__option">
+              <input type="radio" name="size" value="400" class="modal__option-input">
+              <span class="modal__option-icon" aria-hidden="true">L</span>
+              <span class="modal__option-label">400 ml</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="modal__group">
+          <legend class="modal__group-title">Additives</legend>
+          <div class="modal__options">
+            <label class="modal__option">
+              <input type="checkbox" name="additive" value="sugar" class="modal__option-input">
+              <span class="modal__option-icon" aria-hidden="true">1</span>
+              <span class="modal__option-label">Sugar</span>
+            </label>
+            <label class="modal__option">
+              <input type="checkbox" name="additive" value="cinnamon" class="modal__option-input">
+              <span class="modal__option-icon" aria-hidden="true">2</span>
+              <span class="modal__option-label">Cinnamon</span>
+            </label>
+            <label class="modal__option">
+              <input type="checkbox" name="additive" value="syrup" class="modal__option-input">
+              <span class="modal__option-icon" aria-hidden="true">3</span>
+              <span class="modal__option-label">Syrup</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="modal__total">
+          <span>Total:</span>
+          <span id="modal-total">$7.00</span>
+        </div>
+
+        <div class="modal__alert">
+          <svg class="modal__alert-icon icon" aria-hidden="true">
+            <use href="img/icons/sprite.svg#icon-info"></use>
+          </svg>
+          <p class="modal__alert-text">
+            The cost is not final. Download our mobile app to see the final price and place your
+            order. Earn loyalty points and enjoy your favorite coffee with up to 20% discount.
+          </p>
+        </div>
+
+        <button type="button" class="modal__close" data-modal-close>Close</button>
+      </div>
+    </dialog>
+
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
