@@ -100,23 +100,21 @@ body,
   font-style: italic;
 }
 
-/* ---- Иконка-обёртка (svg use из спрайта) ---- */
 .icon {
   flex-shrink: 0;
   fill: none;
 }
 
-/* ---- Скрыть визуально, оставить для скринридеров ---- */
 .visually-hidden {
   position: absolute;
   margin: -1px;
   border: 0;
+  clip-path: inset(50%);
   padding: 0;
   width: 1px;
   height: 1px;
   overflow: hidden;
   white-space: nowrap;
-  clip: rect(0, 0, 0, 0);
 }
 
 .container {
