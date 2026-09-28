@@ -130,7 +130,7 @@ function initBurgerMenu() {
 /* ===== МОДУЛЬ: СЛАЙДЕР ===== */
 function initSlider() {
   const root = document.querySelector('[data-slider]');
-  if (!root) return; // Выход, если мы на menu.html
+  if (!root) return;
 
   const track = root.querySelector('[data-slider-track]');
   const dotsWrap = root.querySelector('[data-slider-dots]');
@@ -380,7 +380,7 @@ async function initMenuPage() {
   try {
     state.products = normalizeProducts(await loadProducts());
   } catch (err) {
-    console.error('Не удалось загрузить меню:', err);
+    console.error('Failed to load the menu:', err);
     const li = document.createElement('li');
     li.textContent = 'Failed to load the menu. Please try again later.';
     grid.appendChild(li);
