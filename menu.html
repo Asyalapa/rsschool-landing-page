@@ -6,6 +6,12 @@
     <title>Coffee House — Menu</title>
 
     <link rel="icon" type="image/svg+xml" href="./images/Logo-CH.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;1,600&display=swap"
+    >
     <link rel="stylesheet" href="style/main.css">
   </head>
   <body>
@@ -21,7 +27,7 @@
           <a href="index.html#favorite-coffee" class="header__nav-link">Favorite coffee</a>
           <a href="index.html#about" class="header__nav-link">About</a>
           <a href="index.html#mobile-app" class="header__nav-link">Mobile app</a>
-          <a href="index.html#contacts" class="header__nav-link">Contact us</a>
+          <a href="#contacts" class="header__nav-link">Contact us</a>
         </nav>
 
         <div class="header__actions">
@@ -86,7 +92,7 @@
         <a href="index.html#favorite-coffee" class="burger-menu__link">Favorite coffee</a>
         <a href="index.html#about" class="burger-menu__link">About</a>
         <a href="index.html#mobile-app" class="burger-menu__link">Mobile app</a>
-        <a href="index.html#contacts" class="burger-menu__link">Contact us</a>
+        <a href="#contacts" class="burger-menu__link">Contact us</a>
       </nav>
 
       <a class="burger-menu__cta burger-menu__cta--current" href="menu.html">
@@ -107,13 +113,14 @@
         <div class="tabs" role="tablist" aria-label="Menu categories">
           <button
             type="button"
-            class="tabs__button tabs__button--active"
+            class="tabs__button"
             role="tab"
+            data-category="coffee"
             id="tab-coffee"
-            aria-selected="true"
+            aria-selected="false"
             aria-controls="panel-coffee"
           >
-            <span class="tabs__icon" aria-hidden="true">☕</span>
+            <span class="tabs__icon" aria-hidden="true"></span>
             <span class="tabs__label">Coffee</span>
           </button>
 
@@ -121,12 +128,13 @@
             type="button"
             class="tabs__button"
             role="tab"
+            data-category="tea"
             id="tab-tea"
             aria-selected="false"
             aria-controls="panel-tea"
             tabindex="-1"
           >
-            <span class="tabs__icon" aria-hidden="true">🫖</span>
+            <span class="tabs__icon" aria-hidden="true"></span>
             <span class="tabs__label">Tea</span>
           </button>
 
@@ -134,209 +142,47 @@
             type="button"
             class="tabs__button"
             role="tab"
+            data-category="dessert"
             id="tab-dessert"
             aria-selected="false"
             aria-controls="panel-dessert"
             tabindex="-1"
           >
-            <span class="tabs__icon" aria-hidden="true">🍰</span>
+            <span class="tabs__icon" aria-hidden="true"></span>
             <span class="tabs__label">Dessert</span>
           </button>
         </div>
       </section>
 
-      <section class="menu-panel" id="panel-coffee" role="tabpanel" aria-labelledby="tab-coffee">
-        <ul class="menu-grid">
-          <li class="menu-card" data-product-id="irish-coffee">
-            <button
-              type="button"
-              class="menu-card__trigger"
-              aria-haspopup="dialog"
-              aria-controls="product-modal"
-            >
-              <span class="menu-card__media">
-                <img src="images/coffee-1.jpg" alt="" class="menu-card__img" loading="lazy">
-              </span>
-              <span class="menu-card__body">
-                <span class="menu-card__title">Irish coffee</span>
-                <span class="menu-card__desc"
-                  >Fragrant black coffee with Jameson Irish whiskey and whipped milk</span
-                >
-                <span class="menu-card__price">$7.00</span>
-              </span>
-            </button>
-          </li>
-
-          <li class="menu-card" data-product-id="kahlua-coffee">
-            <button
-              type="button"
-              class="menu-card__trigger"
-              aria-haspopup="dialog"
-              aria-controls="product-modal"
-            >
-              <span class="menu-card__media">
-                <img src="images/coffee-2.jpg" alt="" class="menu-card__img" loading="lazy">
-              </span>
-              <span class="menu-card__body">
-                <span class="menu-card__title">Kahlua coffee</span>
-                <span class="menu-card__desc"
-                  >Classic coffee with milk and Kahlua liqueur under a cap of frothed milk</span
-                >
-                <span class="menu-card__price">$7.00</span>
-              </span>
-            </button>
-          </li>
-
-          <li class="menu-card" data-product-id="honey-raf">
-            <button
-              type="button"
-              class="menu-card__trigger"
-              aria-haspopup="dialog"
-              aria-controls="product-modal"
-            >
-              <span class="menu-card__media">
-                <img src="images/coffee-3.jpg" alt="" class="menu-card__img" loading="lazy">
-              </span>
-              <span class="menu-card__body">
-                <span class="menu-card__title">Honey raf</span>
-                <span class="menu-card__desc"
-                  >Espresso with frothed milk, cream and aromatic honey</span
-                >
-                <span class="menu-card__price">$5.50</span>
-              </span>
-            </button>
-          </li>
-
-          <li class="menu-card" data-product-id="ice-cappuccino">
-            <button
-              type="button"
-              class="menu-card__trigger"
-              aria-haspopup="dialog"
-              aria-controls="product-modal"
-            >
-              <span class="menu-card__media">
-                <img src="images/coffee-4.jpg" alt="" class="menu-card__img" loading="lazy">
-              </span>
-              <span class="menu-card__body">
-                <span class="menu-card__title">Ice cappuccino</span>
-                <span class="menu-card__desc"
-                  >Cappuccino with soft thick foam in summer version with ice</span
-                >
-                <span class="menu-card__price">$5.00</span>
-              </span>
-            </button>
-          </li>
-
-          <li class="menu-card menu-card--extra" data-product-id="espresso" hidden>
-            <button
-              type="button"
-              class="menu-card__trigger"
-              aria-haspopup="dialog"
-              aria-controls="product-modal"
-            >
-              <span class="menu-card__media">
-                <img src="images/coffee-5.jpg" alt="" class="menu-card__img" loading="lazy">
-              </span>
-              <span class="menu-card__body">
-                <span class="menu-card__title">Espresso</span>
-                <span class="menu-card__desc">Classic black coffee</span>
-                <span class="menu-card__price">$4.50</span>
-              </span>
-            </button>
-          </li>
-
-          <li class="menu-card menu-card--extra" data-product-id="latte" hidden>
-            <button
-              type="button"
-              class="menu-card__trigger"
-              aria-haspopup="dialog"
-              aria-controls="product-modal"
-            >
-              <span class="menu-card__media">
-                <img src="images/coffee-6.jpg" alt="" class="menu-card__img" loading="lazy">
-              </span>
-              <span class="menu-card__body">
-                <span class="menu-card__title">Latte</span>
-                <span class="menu-card__desc"
-                  >Espresso coffee with the addition of steamed milk and dense milk foam</span
-                >
-                <span class="menu-card__price">$5.50</span>
-              </span>
-            </button>
-          </li>
-
-          <li class="menu-card menu-card--extra" data-product-id="latte-macchiato" hidden>
-            <button
-              type="button"
-              class="menu-card__trigger"
-              aria-haspopup="dialog"
-              aria-controls="product-modal"
-            >
-              <span class="menu-card__media">
-                <img src="images/coffee-7.jpg" alt="" class="menu-card__img" loading="lazy">
-              </span>
-              <span class="menu-card__body">
-                <span class="menu-card__title">Latte macchiato</span>
-                <span class="menu-card__desc">Espresso with frothed milk and chocolate</span>
-                <span class="menu-card__price">$5.50</span>
-              </span>
-            </button>
-          </li>
-
-          <li class="menu-card menu-card--extra" data-product-id="coffee-with-cognac" hidden>
-            <button
-              type="button"
-              class="menu-card__trigger"
-              aria-haspopup="dialog"
-              aria-controls="product-modal"
-            >
-              <span class="menu-card__media">
-                <img src="images/coffee-8.jpg" alt="" class="menu-card__img" loading="lazy">
-              </span>
-              <span class="menu-card__body">
-                <span class="menu-card__title">Coffee with cognac</span>
-                <span class="menu-card__desc"
-                  >Fragrant black coffee with cognac and whipped cream</span
-                >
-                <span class="menu-card__price">$6.50</span>
-              </span>
-            </button>
-          </li>
-        </ul>
-
-        <button type="button" class="load-more" aria-controls="panel-coffee">
+      <section class="menu-panel" aria-label="Menu items">
+        <ul class="menu-grid" id="menu-grid"></ul>
+        <button type="button" class="load-more" data-load-more aria-controls="menu-grid" hidden>
           <svg class="load-more__icon icon" aria-hidden="true">
-            <use href="img/icons/sprite.svg#icon-refresh"></use>
+            <use href="images/icons/sprite.svg#icon-refresh"></use>
           </svg>
           <span class="visually-hidden">Show more</span>
         </button>
       </section>
 
-      <section class="menu-panel" id="panel-tea" role="tabpanel" aria-labelledby="tab-tea" hidden>
-        <ul class="menu-grid"></ul>
-        <button type="button" class="load-more" aria-controls="panel-tea">
-          <svg class="load-more__icon icon" aria-hidden="true">
-            <use href="img/icons/sprite.svg#icon-refresh"></use>
-          </svg>
-          <span class="visually-hidden">Show more</span>
-        </button>
-      </section>
-
-      <section
-        class="menu-panel"
-        id="panel-dessert"
-        role="tabpanel"
-        aria-labelledby="tab-dessert"
-        hidden
-      >
-        <ul class="menu-grid"></ul>
-        <button type="button" class="load-more" aria-controls="panel-dessert">
-          <svg class="load-more__icon icon" aria-hidden="true">
-            <use href="img/icons/sprite.svg#icon-refresh"></use>
-          </svg>
-          <span class="visually-hidden">Show more</span>
-        </button>
-      </section>
+      <template id="menu-card-template">
+        <li class="menu-card">
+          <button
+            type="button"
+            class="menu-card__trigger"
+            aria-haspopup="dialog"
+            aria-controls="product-modal"
+          >
+            <span class="menu-card__media">
+              <img src="" alt="" class="menu-card__img" loading="lazy">
+            </span>
+            <span class="menu-card__body">
+              <span class="menu-card__title"></span>
+              <span class="menu-card__desc"></span>
+              <span class="menu-card__price"></span>
+            </span>
+          </button>
+        </li>
+      </template>
 
       <footer class="contacts" id="contacts">
         <div class="contacts__container">
@@ -480,7 +326,7 @@
 
         <div class="modal__alert">
           <svg class="modal__alert-icon icon" aria-hidden="true">
-            <use href="img/icons/sprite.svg#icon-info"></use>
+            <use href="images/icons/sprite.svg#icon-info"></use>
           </svg>
           <p class="modal__alert-text">
             The cost is not final. Download our mobile app to see the final price and place your
