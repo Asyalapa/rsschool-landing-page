@@ -1,7 +1,9 @@
 .tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-4);
   align-items: center;
+  justify-content: center;
 }
 
 .tabs__button {
@@ -41,26 +43,40 @@
   background: var(--color-text-inverse);
 }
 
+@media (width <= 767px) {
+  .tabs {
+    gap: var(--space-2);
+  }
+}
+
 .load-more {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   margin-inline: auto;
   border-radius: var(--radius-full);
-  width: 60px;
-  height: 60px;
+  width: var(--size-icon-button-lg);
+  height: var(--size-icon-button-lg);
+}
+
+.load-more[hidden] {
+  display: none;
 }
 
 .load-more__icon {
-  width: 24px;
-  height: 24px;
+  width: var(--size-icon-button-lg);
+  height: var(--size-icon-button-lg);
   color: var(--color-text-primary);
 }
 
-@media (width <= 768px) {
-  .load-more {
-    display: flex;
-  }
+.load-more:hover,
+.load-more:focus-visible {
+  background: var(--color-border-inverse);
+}
+
+.load-more:hover .load-more__icon,
+.load-more:focus-visible .load-more__icon {
+  color: var(--color-text-inverse);
 }
 
 /* ----------------------------------------------------------------- MODAL */
@@ -133,6 +149,7 @@
 
 .modal__options {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-2);
 }
 
@@ -228,16 +245,13 @@
   font-weight: var(--font-weight-semibold);
 }
 
-@media (width <= 768px) {
+@media (width <= 1439px) {
   .modal {
-    flex-direction: column;
-    width: 92vw;
-    max-height: 90vh;
-    overflow-y: auto;
+    max-width: 688px;
   }
 
   .modal__preview {
-    flex: 0 0 240px;
+    flex-basis: 300px;
   }
 
   .modal__info {
@@ -245,25 +259,16 @@
   }
 }
 
-@media (width <= 360px) {
+/* Мобилка: как в макете — компактная карточка без картинки. */
+@media (width <= 767px) {
   .modal {
-    border-radius: 0;
-    width: 100vw;
-    height: 100dvh;
-    max-height: none;
+    width: min(342px, calc(100vw - var(--space-8)));
+    max-height: 90dvh;
+    overflow-y: auto;
   }
 
   .modal__preview {
-    flex: 0 0 200px;
-  }
-
-  .modal__info {
-    gap: var(--space-4);
-    padding: var(--space-4);
-  }
-
-  .modal__options {
-    flex-wrap: wrap;
+    display: none;
   }
 }
 
@@ -315,10 +320,12 @@
 }
 
 .hero__cta {
+  --cta-icon-size: 20px;
+  --cta-icon-gap: var(--space-2);
+
   display: inline-flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  transition: opacity 0.2s ease;
   border-radius: var(--radius-full);
   background: var(--color-bg-page);
   padding: var(--space-5) var(--space-8);
@@ -329,52 +336,65 @@
   font-weight: var(--font-weight-semibold);
 }
 
-.hero__cta-label {
-  padding-left: var(--space-6);
-}
-
+/* Чашка «выплывает» справа от текста. В покое она схлопнута (width и margin = 0),
+   и «Menu» стоит по центру. На hover группа [Menu][чашка] центрируется заново,
+   поэтому текст сам уезжает влево ровно на нужную величину — без хардкода
+   смещений и при любой длине подписи. */
 .hero__cta-icon {
-  flex-shrink: 0;
-  transform: translateX(-6px);
   transition:
-    opacity 0.2s ease-in-out,
-    transform 0.2s ease-in-out;
+    width 0.3s ease-in,
+    margin-left 0.3s ease-in,
+    opacity 0.3s ease-in;
   opacity: 0;
-  padding-left: 8px;
-  width: 24px;
-  height: 24px;
+  margin-left: 0;
+  width: 0;
+  height: var(--cta-icon-size);
 }
 
-.hero__cta:hover .hero__cta-icon,
 .hero__cta:focus-visible .hero__cta-icon {
-  transform: translateX(0);
   opacity: 1;
+  margin-left: var(--cta-icon-gap);
+  width: var(--cta-icon-size);
 }
 
-@media (width <= 768px) {
-  .hero {
-    padding-inline: 20px;
+@media (hover: hover) and (pointer: fine) {
+  .hero__cta:hover .hero__cta-icon {
+    opacity: 1;
+    margin-left: var(--cta-icon-gap);
+    width: var(--cta-icon-size);
   }
+}
 
+/* Тач: hover'а нет, значит чашка видна всегда (как в макете на планшете/мобилке). */
+@media (hover: none) {
+  .hero__cta-icon {
+    opacity: 1;
+    margin-left: var(--cta-icon-gap);
+    width: var(--cta-icon-size);
+  }
+}
+
+/* Кнопка прижата к низу карточки, текст — сверху (как в макете). */
+@media (width <= 1439px) {
   .hero__container {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: var(--space-10) var(--space-6);
-  }
-
-  .hero__offer {
-    gap: var(--space-6);
-    max-width: 100%;
+    align-items: stretch;
+    padding: var(--space-16) var(--space-15);
+    min-height: 644px;
   }
 
   .hero__cta {
-    width: 100%;
+    margin-top: auto;
   }
 }
 
-@media (width <= 360px) {
+@media (width <= 767px) {
+  .hero {
+    padding-inline: var(--space-4);
+  }
+
   .hero__container {
-    padding: var(--space-6) var(--space-4);
+    padding: var(--space-15) var(--space-4);
+    min-height: 552px;
   }
 }
 
@@ -403,15 +423,9 @@
   font-style: italic;
 }
 
-@media (width <= 768px) {
+@media (width <= 767px) {
   .favorite-coffee {
-    padding: var(--space-10) 20px;
-  }
-}
-
-@media (width <= 360px) {
-  .favorite-coffee {
-    padding: var(--space-6) 16px;
+    padding: var(--space-10) var(--space-4);
   }
 }
 
@@ -443,8 +457,8 @@
   border: 1px solid var(--color-border-inverse);
   border-radius: var(--radius-full);
   background: transparent;
-  width: 60px;
-  height: 60px;
+  width: var(--size-icon-button-lg);
+  height: var(--size-icon-button-lg);
   color: var(--color-text-primary);
 }
 
@@ -537,14 +551,28 @@
   background: var(--color-border-inverse);
 }
 
-@media (width <= 768px) {
+/* Мобилка: слайд на всю ширину, стрелки уходят под него (в макете их нет,
+   там свайп — пока свайпа в JS нет, кнопки нужны). */
+@media (width <= 767px) {
+  .slider {
+    gap: var(--space-6);
+  }
+
   .slider__row {
+    flex-wrap: wrap;
     gap: var(--space-4);
+    justify-content: center;
+  }
+
+  .slider__viewport {
+    flex: 0 0 100%;
+    order: -1;
+    min-width: 0;
   }
 
   .slider__nav {
-    width: 44px;
-    height: 44px;
+    width: var(--size-icon-button-sm);
+    height: var(--size-icon-button-sm);
   }
 
   .slider__nav .icon {
@@ -552,25 +580,11 @@
     height: 18px;
   }
 
-  .slider__viewport {
-    min-width: 0;
-  }
-
   .slider__slide-media {
     aspect-ratio: 1 / 1;
     width: 100%;
-    max-width: 400px;
+    max-width: 480px;
     height: auto;
-  }
-}
-
-@media (width <= 360px) {
-  .slider__slide-media {
-    max-width: 260px;
-  }
-
-  .slider__slide-body {
-    max-width: 100%;
   }
 }
 
@@ -632,6 +646,8 @@
   transform: scale(1.1);
   transition: transform 0.2s ease-in-out;
   border-radius: 20px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -639,37 +655,31 @@
   transform: scale(1);
 }
 
-@media (width <= 768px) {
-  .about {
-    padding: var(--space-10) 20px;
-  }
-
+@media (width <= 1439px) {
   .about__gallery {
     flex-direction: column;
   }
 
-  .about__photo-frame--tall,
+  .about__column {
+    flex: none;
+  }
+
   .about__photo-frame--short {
-    height: 320px;
+    display: none;
+  }
+
+  .about__photo-frame--tall {
+    height: min(76.82vw, 590px);
   }
 }
 
-@media (width <= 360px) {
+@media (width <= 767px) {
   .about {
-    padding: var(--space-6) 16px;
+    padding: var(--space-10) var(--space-4);
   }
 
-  .about__gallery {
-    gap: var(--space-4);
-  }
-
-  .about__column {
-    gap: var(--space-4);
-  }
-
-  .about__photo-frame--tall,
-  .about__photo-frame--short {
-    height: 240px;
+  .about__photo-frame--tall {
+    height: 590px;
   }
 }
 
@@ -768,43 +778,34 @@
   object-fit: contain;
 }
 
-@media (width <= 768px) {
-  .mobile-app {
-    padding: var(--space-10) 20px;
+@media (width <= 1439px) {
+  .mobile-app__container {
+    flex-direction: column;
+    gap: var(--space-10);
+    align-items: stretch;
   }
 
-  .mobile-app__container {
-    flex-direction: column-reverse;
-    gap: var(--space-10);
+  .mobile-app__offer {
+    flex: none;
   }
 
   .mobile-app__screens {
+    align-self: center;
+    aspect-ratio: 1 / 1;
     width: 100%;
-    max-width: 360px;
+    max-width: 630px;
     height: auto;
-  }
-
-  .mobile-app__buttons {
-    flex-wrap: wrap;
-    width: 100%;
-  }
-
-  .mobile-app__store-btn {
-    flex: 1 1 200px;
   }
 }
 
-@media (width <= 360px) {
+@media (width <= 767px) {
   .mobile-app {
-    padding: var(--space-6) 16px;
+    padding: var(--space-10) var(--space-4);
   }
 
   .mobile-app__buttons {
     flex-direction: column;
-  }
-
-  .mobile-app__store-btn {
-    width: 100%;
+    align-items: flex-start;
   }
 }
 
@@ -923,45 +924,17 @@
   font-weight: var(--font-weight-semibold);
 }
 
-@media (width <= 768px) {
-  .menu-hero {
-    padding-inline: 20px;
-  }
-
+@media (width <= 767px) {
+  .menu-hero,
   .menu-panel {
-    padding-inline: 20px;
-  }
-
-  .menu-grid {
-    gap: var(--space-6);
+    padding-inline: var(--space-4);
   }
 
   .menu-card {
-    width: calc(50% - var(--space-3));
-    height: auto;
+    max-width: 100%;
   }
 
   .menu-card__media {
     width: 100%;
-    height: 220px;
-  }
-}
-
-@media (width <= 360px) {
-  .menu-hero {
-    padding-inline: 16px;
-  }
-
-  .menu-panel {
-    padding-inline: 16px;
-  }
-
-  .menu-grid {
-    gap: var(--space-4);
-  }
-
-  .menu-card {
-    width: 100%;
-    max-width: 340px;
   }
 }
