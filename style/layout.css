@@ -1,7 +1,7 @@
 /* --- HEADER --- */
 
 .header {
-  padding-block: 20px;
+  padding: 20px 40px;
 }
 
 .header__container {
@@ -20,7 +20,7 @@
 
 .header__logo-icon {
   width: 100px;
-  height: 60px;
+  height: var(--size-icon-button-lg);
   color: var(--color-text-primary);
 }
 
@@ -30,22 +30,16 @@
   gap: 42px;
   align-items: center;
   justify-content: center;
-  margin-right: 44px;
+  margin-right: var(--size-icon-button-sm);
   height: 100%;
 }
 
 .header__nav-link {
-  transition: border-color 0.2s ease;
-  border-bottom: 1px solid transparent;
+  position: relative;
   padding-bottom: 4px;
   line-height: var(--line-height-action);
   font-size: var(--font-size-action);
   font-weight: var(--font-weight-semibold);
-}
-
-.header__nav-link:hover,
-.header__nav-link:focus-visible {
-  border-bottom-color: currentcolor;
 }
 
 .header__actions {
@@ -57,10 +51,9 @@
 
 .header__menu-link {
   display: inline-flex;
+  position: relative;
   gap: var(--space-2);
   align-items: center;
-  transition: border-color 0.2s ease;
-  border-bottom: 1px solid transparent;
   padding-bottom: 4px;
   line-height: var(--line-height-action);
   font-size: var(--font-size-action);
@@ -73,10 +66,33 @@
   color: var(--color-text-primary);
 }
 
-.header__menu-link:hover,
-.header__menu-link:focus-visible,
-.header__menu-link--current {
-  border-bottom-color: currentcolor;
+.header__nav-link::after,
+.header__menu-link::after,
+a.contacts__link::after {
+  position: absolute;
+  inset: auto 0 0;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-out;
+  background: currentcolor;
+  height: 2px;
+  content: "";
+  pointer-events: none;
+}
+
+.header__nav-link:focus-visible::after,
+.header__menu-link:focus-visible::after,
+a.contacts__link:focus-visible::after,
+.header__menu-link--current::after,
+.header__menu-link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .header__nav-link:hover::after,
+  .header__menu-link:hover::after,
+  a.contacts__link:hover::after {
+    transform: scaleX(1);
+  }
 }
 
 .header__burger {
@@ -127,9 +143,8 @@
   transform: rotate(-45deg);
 }
 
-@media (width <= 768px) {
+@media (width <= 900px) {
   .header__container {
-    padding: 0 var(--space-6);
     height: auto;
   }
 
@@ -142,7 +157,7 @@
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    width: 44px;
+    width: var(--size-icon-button-sm);
     height: 28px;
   }
 
@@ -155,18 +170,20 @@
   }
 }
 
-@media (width <= 360px) {
-  .header__container {
-    padding-inline: 16px;
+@media (width <= 767px) {
+  .header {
+    padding-inline: var(--space-4);
   }
+}
 
+@media (width <= 360px) {
   .header__logo-icon {
     width: 84px;
     height: 50px;
   }
 }
 
-/* ------------------------------------------------------------ THEME SWITCH */
+/* --- THEME SWITCH --- */
 .theme-switch {
   display: flex;
   gap: var(--space-2);
@@ -174,7 +191,7 @@
   border: 1px solid var(--color-border-primary);
   border-radius: var(--radius-full);
   padding: var(--space-1);
-  height: 44px;
+  height: var(--size-icon-button-sm);
 }
 
 .theme-switch__option {
@@ -239,16 +256,13 @@
   }
 }
 
-/* ------------------------------------------------------------- BURGER MENU */
-
-/* На десктопе оверлей не открывается (кнопка, которая его вызывает, скрыта),
-   но на всякий случай держим его физически спрятанным и здесь тоже. */
+/* --- BURGER MENU --- */
 
 .burger-menu {
   display: none;
 }
 
-@media (width <= 768px) {
+@media (width <= 900px) {
   .burger-menu {
     display: flex;
     position: fixed;
@@ -274,7 +288,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
+    width: var(--size-icon-button-sm);
     height: 28px;
   }
 
@@ -311,17 +325,19 @@
   }
 }
 
-@media (width <= 360px) {
+@media (width <= 767px) {
   .burger-menu {
-    padding: 16px;
+    padding: 20px var(--space-4);
   }
+}
 
+@media (width <= 360px) {
   .burger-menu__nav {
     gap: var(--space-4);
   }
 }
 
-/* --------------------------------------------------------------- BUTTONS */
+/* --- BUTTONS --- */
 
 .btn-primary {
   display: inline-flex;
@@ -342,8 +358,7 @@
   opacity: 0.85;
 }
 
-/* -------------------------------------------------------------- CONTACTS
-   Общий футер-блок для index.html и menu.html. */
+/* --- CONTACTS --- */
 
 .contacts {
   padding: var(--space-10) 40px;
@@ -393,8 +408,8 @@
   transition: background-color 0.2s ease;
   border: 1px solid var(--color-border-primary);
   border-radius: var(--radius-full);
-  width: 60px;
-  height: 60px;
+  width: var(--size-icon-button-lg);
+  height: var(--size-icon-button-lg);
 }
 
 .contacts__social-link:hover,
@@ -406,8 +421,8 @@
   transition:
     border-color 0.2s ease,
     color 0.2s ease;
-  width: 60px;
-  height: 60px;
+  width: var(--size-icon-button-lg);
+  height: var(--size-icon-button-lg);
   color: var(--color-text-inverse);
 }
 
@@ -435,19 +450,14 @@
 
 .contacts__link {
   display: inline-flex;
+  position: relative;
   gap: var(--space-2);
   align-items: center;
-  transition: border-bottom-color 0.2s ease-in-out;
-  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
   line-height: var(--line-height-action);
   color: var(--color-text-inverse);
   font-size: var(--font-size-action);
   font-weight: var(--font-weight-semibold);
-}
-
-a.contacts__link:hover,
-a.contacts__link:focus-visible {
-  border-bottom-color: currentcolor;
 }
 
 .contacts__link--static {
@@ -460,15 +470,16 @@ a.contacts__link:focus-visible {
   color: var(--color-text-inverse);
 }
 
-@media (width <= 768px) {
-  .contacts {
-    padding: var(--space-6) 20px;
-  }
-
+@media (width <= 1439px) {
   .contacts__container {
     flex-direction: column;
-    gap: var(--space-10);
-    padding: var(--space-10);
+    gap: var(--space-16);
+    padding: var(--space-16) var(--space-15);
+  }
+
+  .contacts__offer,
+  .contacts__info {
+    flex: none;
   }
 
   .contacts__info {
@@ -476,15 +487,23 @@ a.contacts__link:focus-visible {
   }
 }
 
-@media (width <= 360px) {
+@media (width <= 767px) {
   .contacts {
-    padding: var(--space-6) 16px;
+    padding: var(--space-6) var(--space-4);
   }
 
   .contacts__container {
-    padding: var(--space-6);
+    gap: var(--space-10);
+    padding: var(--space-15) var(--space-4);
   }
 
+  .contacts__title {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (width <= 360px) {
   .contacts__social-link {
     width: 48px;
     height: 48px;
