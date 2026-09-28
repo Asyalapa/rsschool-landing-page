@@ -35,13 +35,13 @@
   --space-10: 40px;
   --space-15: 60px;
   --space-16: 100px;
-  --radius-sm: 8px; /* карточки/свотчи */
-  --radius-lg: 12px; /* контейнеры */
-  --radius-full: 100px; /* пилюли, круглые кнопки-иконки */
+  --radius-sm: 8px;
+  --radius-lg: 12px;
+  --radius-full: 100px;
 
-  /* ---- Component sizing (кнопки-иконки) ------------------------------- */
-  --size-icon-button-sm: 44px; /* burger */
-  --size-icon-button-lg: 60px; /* social / nav icon buttons */
+  /* ---- Кнопки-иконки ---- */
+  --size-icon-button-sm: 44px;
+  --size-icon-button-lg: 60px;
 }
 
 [data-theme="dark"] {
@@ -50,7 +50,15 @@
   --color-text-accent: #b0907a;
   --color-bg-page: #292826;
   --color-bg-container: #403f3d;
-  --color-bg-overlay: rgb(41 40 38 / 80%); /* #292826 · 80% */
+  --color-bg-overlay: rgb(41 40 38 / 80%);
   --color-border-primary: #665f55;
   --color-border-inverse: #c1b6ad;
+}
+
+@media (width <= 767px) {
+  :root {
+    --font-size-h1: 42px;
+    --line-height-h1: 1.15;
+    --font-size-h2: 32px;
+  }
 }
