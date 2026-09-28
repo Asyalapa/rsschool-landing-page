@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.13",
+    "stylelint": "^17.15.0",
+    "stylelint-config-concentric-order": "^5.5.0",
+    "stylelint-config-standard": "^40.0.0"
+  },
+  "scripts": {
+    "lint:css": "stylelint \"**/*.css\"",
+    "lint:css:fix": "stylelint \"**/*.css\" --fix",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,scss,md,html,json}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,css,scss,md,html,json}\""
+  }
+}
